@@ -16,9 +16,24 @@ aside {
   background-color: aquamarine;
   flex-basis: 20%;
 }
+.days {
+  background-color: aliceblue;
+  display: flex;
+}
+.days ul {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-around;
+  gap: 1rem;
+  list-style-type: none;
+}
 main {
   background-color: chartreuse;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
   flex-basis: 80%;
+  min-height: 100vh;
 }
 @media (max-width: 600px) {
   aside,
