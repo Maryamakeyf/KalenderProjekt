@@ -14,11 +14,11 @@ header {
 }
 aside {
   background-color: aquamarine;
-  flex-basis: 33%;
+  flex-basis: 20%;
 }
 main {
   background-color: chartreuse;
-  flex-basis: 67%;
+  flex-basis: 80%;
 }
 @media (max-width: 600px) {
   aside,
