@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+header {
+  background: rebeccapurple;
+}
+aside {
+  background-color: aquamarine;
+  flex-basis: 33%;
+}
+main {
+  background-color: chartreuse;
+  flex-basis: 67%;
+}
+@media (max-width: 600px) {
+  aside,
+  main {
+    flex-basis: 100%;
+  }
+}
