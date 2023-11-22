@@ -1,0 +1,57 @@
+body {
+  display: flex;
+  flex-direction: column;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+header {
+  background: rebeccapurple;
+}
+aside {
+  background-color: aquamarine;
+  flex-basis: 20%;
+}
+.month-banner {
+  background-color: aqua;
+  text-align: center;
+}
+.month-banner h2 {
+  display: inline;
+}
+.days {
+  background-color: aliceblue;
+  display: flex;
+}
+.days ul {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+main {
+  background-color: chartreuse;
+  flex-basis: 80%;
+  min-height: 100vh;
+}
+.calender {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+@media (max-width: 600px) {
+  aside,
+  main {
+    flex-basis: 100%;
+  }
+  .days {
+    font-size: small;
+  }
+  .days ul {
+    padding: 10px;
+  }
+}
