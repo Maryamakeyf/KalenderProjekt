@@ -1,3 +1,5 @@
-let date = new Date();
-const todaysDate = date.toLocaleDateString("sv-sv");
-console.log(todaysDate);
+function renderDate() {
+  let date = new Date();
+  const todaysDate = date.toLocaleDateString("sv-sv");
+  console.log(todaysDate);
+}
