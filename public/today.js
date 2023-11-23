@@ -6,3 +6,5 @@ let year = date.getFullYear();
 
 let fullDate = `${day}-${month}-${year}`;
 console.log(fullDate);
+const todaysDate = date.toLocaleDateString("sv-sv");
+console.log(todaysDate);
