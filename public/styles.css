@@ -1,3 +1,6 @@
+* {
+  margin: 0;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -15,6 +18,10 @@ header {
 aside {
   background-color: aquamarine;
   flex-basis: 20%;
+}
+.today-content {
+  padding: 1rem;
+  background-color: darkgray;
 }
 .month-banner {
   background-color: aqua;
