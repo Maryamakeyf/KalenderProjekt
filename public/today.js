@@ -8,3 +8,17 @@ function renderDate() {
   dateElement.appendChild(dateText);
   displayDate.appendChild(dateElement);
 }
+
+function displayCurrentDay() {
+  const days = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
+  const currentDate = new Date();
+  const dayOfWeek = days[currentDate.getDay()];
+
+  let todayInfoElement = document.getElementById("day-of-week");
+  let dayElement = document.createElement("p");
+  dayElement.textContent = dayOfWeek;
+
+  todayInfoElement.appendChild(dayElement);
+}
+
+displayCurrentDay();
