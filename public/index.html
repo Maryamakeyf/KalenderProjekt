@@ -31,9 +31,9 @@
 
       <main>
         <div class="month-banner">
-          <span class="material-symbols-outlined"> chevron_left </span>
-          <h2>November</h2>
-          <span class="material-symbols-outlined"> chevron_right </span>
+          <button id="beforeBtn"><span class="material-symbols-outlined">chevron_left</span></button>
+          <span id="monthYear">Månad och år</span>
+          <button id="nextBtn"><span class="material-symbols-outlined">chevron_right</span></button>
         </div>
         <div class="days">
           <ul>
@@ -46,7 +46,10 @@
             <li>Söndag</li>
           </ul>
         </div>
-        <div class="calender">Huvudinnehåll kalender</div>
+
+        <div id="calendar-dates" class="calendar-dates">
+          <!-- Kalenderdatum kommer att genereras och visas här så behövs css -->
+      </div>
       </main>
     </div>
   </body>

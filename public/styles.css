@@ -50,6 +50,18 @@ main {
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
 }
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-variant: normal;
+  font-size: 24px; /* Justera storleken efter behov, vi tycker passar */
+}
+
 @media (max-width: 600px) {
   aside,
   main {
