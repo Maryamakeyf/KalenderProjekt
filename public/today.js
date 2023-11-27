@@ -21,6 +21,8 @@ function displayCurrentDay() {
   todayInfoElement.appendChild(dayElement);
 }
 
+
+
 displayCurrentDay();
 
 function initClock() {
