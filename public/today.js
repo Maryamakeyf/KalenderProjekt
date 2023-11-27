@@ -24,8 +24,8 @@ function displayCurrentDay() {
 displayCurrentDay();
 
 function updateCalendar() {
-  const dateElement = document.getElementById('calendar-dates'); // Ange korrekt ID för kalenderdatum
-  const monthYearElement = document.getElementById('monthYear'); // Ange korrekt ID för månads- och årstext
+  const dateElement = document.getElementById('calendar-dates'); 
+  const monthYearElement = document.getElementById('monthYear'); 
   let currentDate = new Date();
   generateCalendar(currentDate, dateElement, monthYearElement);
 
