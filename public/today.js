@@ -23,3 +23,23 @@ function displayCurrentDay() {
 
 displayCurrentDay();
 
+function initClock() {
+  const klockaElement = document.getElementById('klocka');
+
+  function logCurrentTime() { // update klock gör så att tiden visas direkt
+    const currentTime = new Date();
+    const hours = currentTime.getHours().toString().padStart(2, '0');
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+
+    klockaElement.textContent = `${hours}:${minutes}:${seconds}`; //uppdaterar content i html sidan
+
+    
+  }
+
+  // Anropa funktionen för att uppdatera klockan varje sekund
+  setInterval(logCurrentTime, 1000);
+
+  // Initial update to display the current time immediately
+  logCurrentTime();
+}
