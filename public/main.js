@@ -2,8 +2,9 @@ window.addEventListener("DOMContentLoaded", main);
 
 function main() {
   renderDate();
-  displayCurrentDay();
   initClock();
+  displayCurrentDay();
+  
   // Init today view
 
   // Init todos list
