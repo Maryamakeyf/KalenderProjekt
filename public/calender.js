@@ -49,4 +49,4 @@ function updateCalendar () {
     dateElement.innerHTML = datesHTML;
   }
   
-  updateCalendar();
+ 
