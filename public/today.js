@@ -1,39 +1,33 @@
 
 function initClock() {
 
-
   // Anropa funktionen för att uppdatera klockan varje sekund
   setInterval(tick, 1000);
 
   // Initial update to display the current time immediately
   tick()
+
+  // Set up an interval to run the function every 24 hours
+  
+
 }
 
 function tick() {
   logCurrentTime();
-}
-
-
-
-/*function tickTock() {
-  setInterval (tick, 24 * 60 * 60 * 1000)
   renderDate();
   displayCurrentDay();
-}*/
+}
+
+function updateDayAndDate() {
+}
 
 
 function renderDate() {
   let date = new Date();
   const todaysDate = date.toLocaleDateString("sv-sv");
-  let displayDate = document.getElementById("today-content");
+  let displayDate = document.getElementById("date");
+  displayDate.innerHTML = todaysDate;
 
-
-
-  let dateElement = document.createElement("div");
-  let dateText = document.createElement("h3");
-  dateText.innerHTML = todaysDate;
-  dateElement.appendChild(dateText);
-  displayDate.appendChild(dateElement);
 }
 
 function displayCurrentDay() {
@@ -42,10 +36,7 @@ function displayCurrentDay() {
   const dayOfWeek = days[currentDate.getDay()];
 
   let todayInfoElement = document.getElementById("day-of-week");
-  let dayElement = document.createElement("p");
-  dayElement.textContent = dayOfWeek;
-
-  todayInfoElement.appendChild(dayElement);
+  todayInfoElement.textContent = dayOfWeek;
 }
 
 function logCurrentTime() { // update klock gör så att tiden visas direkt
@@ -165,3 +156,4 @@ function logCurrentTime() { // update klock gör så att tiden visas direkt
 */
 
 
+ 
