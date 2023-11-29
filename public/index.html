@@ -26,6 +26,29 @@
           <p id="date"></p>
           <div id="klocka" class="klocka"></div>
         </div>
+        <div class="todo-list-container" id="todo-list-container">
+          <div class="add-todo" id="add-todo">
+            <input
+              type="text"
+              id="todo-title-input"
+              data-cy="todo-title-input"
+              placeholder="Skriv här"
+            />
+            <input
+              type="date"
+              name="date"
+              id="date-todo"
+              data-cy="todo-date-input"
+            />
+            <button id="todo-btn" data-cy="save-todo-button">
+              Lägg till todo
+            </button>
+            <button id="edit-btn" data-cy="edit-todo-button">
+              Redigera todo
+            </button>
+          </div>
+          <div id="display-todo"></div>
+        </div>
       </aside>
       <main>
         <div class="month-banner">

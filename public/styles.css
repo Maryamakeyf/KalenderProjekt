@@ -8,6 +8,9 @@ body {
   margin: 0;
   padding: 0;
 }
+span {
+  cursor: pointer;
+}
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +32,12 @@ aside {
 }
 .month-banner h2 {
   display: inline;
+}
+.todo-list-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: blue;
 }
 .days {
   background-color: aliceblue;
@@ -62,6 +71,3 @@ main {
     padding: 10px;
   }
 }
-
-
-
