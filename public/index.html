@@ -12,8 +12,8 @@
     <title>Document</title>
     <script src="today.js"></script>
     <script src="calender.js"></script>
-    <script src="todos.js"></script>
-    <script src="main.js"></script>
+    <script src="todos.js" defer></script>
+    <script src="main.js" defer></script>
   </head>
   <body>
     <header>
@@ -26,7 +26,11 @@
           <p id="date"></p>
           <div id="klocka" class="klocka"></div>
         </div>
-        <div class="todo-list-container" id="todo-list-container">
+        <div
+          class="todo-list-container"
+          id="todo-list-container"
+          data-cy="todo-list"
+        >
           <div class="add-todo" id="add-todo">
             <input
               type="text"
@@ -47,7 +51,9 @@
               Redigera todo
             </button>
           </div>
-          <div id="display-todo"></div>
+          <div id="display-todo">
+            <ol></ol>
+          </div>
         </div>
       </aside>
       <main>
