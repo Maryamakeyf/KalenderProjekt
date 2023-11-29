@@ -1,5 +1,10 @@
 * {
   margin: 0;
+  box-sizing: border-box; /* Lägg till detta för att inkludera padding och border i elementens totala bredd och höjd */
+}
+html {
+  height: 100%;
+  
 }
 body {
   display: flex;
@@ -7,6 +12,7 @@ body {
   box-sizing: content-box;
   margin: 0;
   padding: 0;
+  
 }
 .content {
   display: flex;
@@ -14,7 +20,9 @@ body {
 }
 header {
   background: rebeccapurple;
+  text-align: center; /* sätter tecten kalender i mitten*/
 }
+
 aside {
   background-color: aquamarine;
   flex-basis: 20%;
@@ -24,35 +32,69 @@ aside {
   background-color: darkgray;
 }
 .month-banner {
-  background-color: aqua;
+  background-color: rgb(97, 161, 161);
   text-align: center;
 }
 .month-banner h2 {
   display: inline;
 }
 .days {
-  background-color: aliceblue;
-  display: flex;
+  display: grid;
+  margin: 0px;
+  padding: 10px 0;
+  background-color: #b05f5f;
+  padding: 10px;
 }
-.days ul {
-  display: flex;
-  flex-basis: 100%;
-  justify-content: space-evenly;
-  list-style-type: none;
+
+.days li {
+  display: inline-block;
+  width: 100px;
+  color: #000000;
+  text-align: center;
+
 }
 main {
-  background-color: chartreuse;
+  background-color: rgb(250, 252, 248);
   flex-basis: 80%;
-  min-height: 100vh;
+  border-radius: 5px; /* storleken rundheten*/
+  /* box-shadow: 1px 0 5px black; /*skuggan på knapparna*/
 }
-.calender {
+
+.calendar-dates {
+ padding: 10px; 
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
+  max-height: 100%;
+  gap: 5px;
+}
+
+.date {
+  display: flex;
+  padding: 10px 5px;
+  padding-bottom: 50%;
+  margin: auto;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0; /* rundheten på knappen över dagen */
+  width: 100%; /* att vara responsiv */
+  height: auto; /* för att vara mer flexibel */
+  transition: 0.2s;
+  border: 1px solid bisque; /* Vi kan välja vilka färger sen */
+}
+
+
+.date:hover, .date.active {
+  background-color: #000000af;
+  color: rgb(254, 140, 0);
+}
+
+.date.inactive {
+  color: rgba(255, 0, 0, 0.31);
 }
 
 button {
   border: none;
+  padding: 10px;
   background-color: transparent;
   cursor: pointer;
 }
@@ -61,6 +103,7 @@ button {
   font-variant: normal;
   font-size: 24px; /* Justera storleken efter behov, vi tycker passar */
 }
+
 
 @media (max-width: 600px) {
   aside,
