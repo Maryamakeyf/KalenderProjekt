@@ -41,7 +41,6 @@ aside {
 .days {
   display: grid;
   margin: 0px;
-  padding: 10px 0;
   background-color: #b05f5f;
   padding: 10px;
 }
