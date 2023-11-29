@@ -1,6 +1,10 @@
-function updateCalendar() {
+function updateCalendar () {
     const dateElement = document.getElementById('calendar-dates'); 
     const monthYearElement = document.getElementById('monthYear'); 
+    
+    if (!dateElement || !monthYearElement) {
+        return; // Exit the function if elements are not found
+      }
     let currentDate = new Date();
     generateCalendar(currentDate, dateElement, monthYearElement);
   
@@ -18,7 +22,7 @@ function updateCalendar() {
   function generateCalendar(date, dateElement, monthYearElement) {
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth();
-    const firstDay = new Date(currentYear, currentMonth, 1);
+    const firstDay = new Date(currentYear, currentMonth, 0);
     const lastDay = new Date(currentYear, currentMonth + 1, 0);
     const totalDays = lastDay.getDate();
     const firstDayIndex = firstDay.getDay();
