@@ -13,6 +13,8 @@ function tick() {
   logCurrentTime();
 }
 
+
+
 /*function tickTock() {
   setInterval (tick, 24 * 60 * 60 * 1000)
   renderDate();
