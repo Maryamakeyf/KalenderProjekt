@@ -1,20 +1,31 @@
 const todoContainer = document.getElementById("todo-list");
 const inputTodo = document.getElementById("todo-title-input");
+const inputDate = document.getElementById("date-todo");
 const todoBtn = document.getElementById("todo-btn");
 const todoList = document.getElementById("display-todo");
 const orderdListElement = document.querySelector("ol");
 const editBtn = document.getElementById("edit-btn");
 editBtn.style.display = "none";
-
+console.log(inputDate);
 let arrayOfTodos = [];
 
 function initTodolist() {
   todoBtn.onclick = function () {
     let todo = inputTodo.value;
-    if (todo !== "") {
-      arrayOfTodos.push(todo);
+    let todoDate = inputDate.value;
+    if (todo !== "" && todoDate !== "") {
+      arrayOfTodos.push({ text: todo, date: todoDate });
       //tömmer value fältet
       inputTodo.value = "";
+      inputDate.value = "";
+      console.log(arrayOfTodos);
+    } else if (todo !== "" && todoDate === "") {
+      let date = new Date();
+      const todaysDate = date.toLocaleDateString("sv-sv");
+      arrayOfTodos.push({ text: todo, date: todaysDate });
+      //tömmer value fältet
+      inputTodo.value = "";
+      inputDate.value = "";
     } else {
       return;
     }
@@ -26,7 +37,7 @@ function renderTodoList() {
 
   for (let aTodo of arrayOfTodos) {
     const liElement = document.createElement("li");
-    liElement.textContent = aTodo;
+    liElement.textContent = aTodo.text + "-" + aTodo.date;
     orderdListElement.appendChild(liElement);
     const spanElementDelete = document.createElement("span");
     spanElementDelete.classList.add("material-symbols-outlined");
