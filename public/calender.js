@@ -33,11 +33,17 @@ function generateCalendar(date, dateElement, monthYearElement) {
   const currentYear = date.getFullYear();
   const currentMonth = date.getMonth();
   // Skapar objekt för första och sista dagen i månaden.
-  const firstDay = new Date(currentYear, currentMonth, 0);
+  const firstDay = new Date(currentYear, currentMonth, 1);
   const lastDay = new Date(currentYear, currentMonth + 1, 0);
   // Hämtar antalet dagar i månaden och index för första och sista dagen.
   const totalDays = lastDay.getDate();
-  const firstDayIndex = firstDay.getDay();
+  /* Justerar så 0 = sön och mån = 1 ist för den amerkanska tänket*/
+  let firstDayIndex = firstDay.getDay();
+  if (firstDayIndex === 0) {
+    firstDayIndex = 6;
+  } else {
+    firstDayIndex -= 1;
+  }
   const lastDayIndex = lastDay.getDay();
 
   // Omvandlar datumet till en sträng som visar månadens namn och året, och visar sedan denna sträng.
