@@ -5,6 +5,8 @@ function main() {
   initClock();
   displayCurrentDay();
   initTodolist();
+  loadTodoFromLocalStorage();
+  renderTodoList();
 
   // Init today view
 

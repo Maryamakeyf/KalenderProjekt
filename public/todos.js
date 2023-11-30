@@ -23,6 +23,7 @@ function initTodolist() {
       /*spara todon och datumet i arrayen som ett object*/
       arrayOfTodos.push({ text: todo, date: todoDate });
       //tömmer value fälten/återställer
+      saveTodosToLocalStorage();
       inputTodo.value = "";
       inputDate.value = "";
       /*Om vi har en todo men man inte valt i datum ska den ta dagens datum som default*/
@@ -33,6 +34,7 @@ function initTodolist() {
       const todaysDate = date.toLocaleDateString("sv-sv");
       arrayOfTodos.push({ text: todo, date: todaysDate });
       //tömmer value fältet
+      saveTodosToLocalStorage();
       inputTodo.value = "";
       inputDate.value = "";
       //man kan trycka på knapp utan att ngt händer
@@ -85,6 +87,7 @@ function removeTodo(index) {
     index,
     1
   ); /*vid det valda indexet tar den bort en sak, asså den valda todon i arrayen*/
+  saveTodosToLocalStorage();
   renderTodoList();
 }
 
@@ -104,6 +107,7 @@ function editTodo(index) {
     /*om både edittodo och editdate har ett värden kommer nya värdena som är sparade i de nya variablerna och sättas till arrayen vid det aktuella indexet*/
     if (editedTodo !== "" && editedDate !== "") {
       arrayOfTodos[index] = { text: editedTodo, date: editedDate };
+      saveTodosToLocalStorage();
       inputTodo.value = "";
       inputDate.value = "";
       editBtn.style.display = "none";
@@ -117,4 +121,17 @@ function editTodo(index) {
     }
     /*du kan välja på redigera att bara ändra ett av värdena har testat och den ändrar bara det nya då utan problem*/
   };
+}
+//function för att spara till localstorage
+function saveTodosToLocalStorage() {
+  // sätter todos i localstorage med strängar av arrayen todo
+  localStorage.setItem("todos", JSON.stringify(arrayOfTodos));
+}
+//function för att hämta todos from localstorage
+function loadTodoFromLocalStorage() {
+  const storedTodos = localStorage.getItem("todos");
+  // if sats för att kolla om todos är sparad
+  if (storedTodos) {
+    arrayOfTodos = JSON.parse(storedTodos);
+  }
 }
