@@ -74,7 +74,15 @@ function generateCalendar(date, dateElement, monthYearElement) {
     datesHTML += `<div class="date ${activeClass}" data-cy="calendar-cell"><p data-cy="calendar-cell-date">${i}</p></div>`;
   }
   //lägger till inaktiva datum efter den sista dagen i månaden
-  for (let i = 1; i <= 7 - lastDayIndex; i++) {
+  let remainingDays = 7 - lastDayIndex;
+  if (lastDayIndex === 0) {
+    remainingDays = 0;
+  }
+
+  const daysAfterMonth = remainingDays === 7 ? 0 : remainingDays;
+
+  // Add inactive dates after the end of the month up to the end of the current week
+  for (let i = 1; i <= daysAfterMonth; i++) {
     datesHTML += `<div class="date inactive" data-cy="calendar-cell"><p data-cy="calendar-cell-date">${i}</p></div>`;
   }
   // sätter in HTML för datumen i kalenderelementen.
