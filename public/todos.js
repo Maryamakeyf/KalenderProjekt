@@ -5,9 +5,7 @@ const inputDate = document.getElementById("date-todo");
 const todoBtn = document.getElementById("todo-btn");
 const todoList = document.getElementById("display-todo");
 const orderdListElement = document.querySelector("ol");
-const editBtn = document.getElementById("edit-btn");
-//redigera knappen syns ej från start av kalendern.
-editBtn.style.display = "none";
+
 //initiera en array där todos och datum ska sparas
 let arrayOfTodos = [];
 
@@ -93,11 +91,8 @@ function editTodo(index) {
   /*sätter värdet i inpuputfält och datumfältet till det värdet som finns vid valt index (.) är att den går in i varje objekt del*/
   inputTodo.value = arrayOfTodos[index].text;
   inputDate.value = arrayOfTodos[index].date;
-  /*visar vår redigera knapp och tar bort lägg till*/
-  editBtn.style.display = "inline";
-  todoBtn.style.display = "none";
   /* När man trycker på redigera */
-  editBtn.onclick = function () {
+  todoBtn.onclick = function () {
     /* tar den in de nya värderna man valt och sparar i nya varibler */
     const editedTodo = inputTodo.value;
     const editedDate = inputDate.value;
@@ -106,14 +101,14 @@ function editTodo(index) {
       arrayOfTodos[index] = { text: editedTodo, date: editedDate };
       inputTodo.value = "";
       inputDate.value = "";
-      editBtn.style.display = "none";
-      todoBtn.style.display = "inline";
+
       renderTodoList();
+      initTodolist();
+
       /*om man inte gör ngt ändrar den bara knapparna och visar todolistan*/
     } else {
-      editBtn.style.display = "none";
-      todoBtn.style.display = "inline";
       renderTodoList();
+      initTodolist();
     }
     /*du kan välja på redigera att bara ändra ett av värdena har testat och den ändrar bara det nya då utan problem*/
   };
