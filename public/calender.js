@@ -87,4 +87,12 @@ function generateCalendar(date, dateElement, monthYearElement) {
   }
   // sätter in HTML för datumen i kalenderelementen.
   dateElement.innerHTML = datesHTML;
+  leapYear(currentYear);
+}
+function leapYear(year) {
+  if (year % 100 === 0 ? year % 400 === 0 : year % 4 === 0) {
+    console.log("leap year");
+  } else {
+    console.log("Not leap year");
+  }
 }

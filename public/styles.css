@@ -121,4 +121,8 @@ button {
   .days ul {
     padding: 10px;
   }
+
+  .calendar-dates {
+    width: 70%;
+  }
 }
