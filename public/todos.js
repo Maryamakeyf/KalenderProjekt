@@ -113,6 +113,7 @@ function editTodo(index) {
     } else {
       renderTodoList();
       initTodolist();
+      
     }
     /*du kan välja på redigera att bara ändra ett av värdena har testat och den ändrar bara det nya då utan problem*/
   };
@@ -130,3 +131,5 @@ function loadTodoFromLocalStorage() {
     arrayOfTodos = JSON.parse(storedTodos);
   }
 }
+
+
