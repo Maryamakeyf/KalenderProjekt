@@ -18,8 +18,6 @@ function tick() {
   displayCurrentDay();
 }
 
-function updateDayAndDate() {
-}
 
 
 function renderDate() {
