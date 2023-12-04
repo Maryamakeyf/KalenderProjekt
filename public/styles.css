@@ -8,6 +8,9 @@ body {
   margin: 0;
   padding: 0;
 }
+span {
+  cursor: pointer;
+}
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -22,6 +25,7 @@ aside {
 .today-content {
   padding: 1rem;
   background-color: darkgray;
+  font-size: large; 
 }
 .month-banner {
   background-color: aqua;
@@ -29,6 +33,42 @@ aside {
 }
 .month-banner h2 {
   display: inline;
+}
+
+.todo-list-container {
+  padding-top: 4px;
+  padding-bottom: 4;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  
+}
+input {
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.todolista{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  padding-left: 15px;
+  font-weight: bold;
+
+}
+#todo-btn{
+  margin-top: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 5px ;
+  height: 2rem;
+}
+#date{
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 .days {
   background-color: aliceblue;
@@ -62,6 +102,3 @@ main {
     padding: 10px;
   }
 }
-
-
-

@@ -12,8 +12,8 @@
     <title>Document</title>
     <script src="today.js"></script>
     <script src="calender.js"></script>
-    <script src="todos.js"></script>
-    <script src="main.js"></script>
+    <script src="todos.js" defer></script>
+    <script src="main.js" defer></script>
   </head>
   <body>
     <header>
@@ -25,6 +25,33 @@
           <p id="day-of-week" class="day-of-week"></p>
           <p id="date"></p>
           <div id="klocka" class="klocka"></div>
+        </div>
+        <div
+          class="todo-list-container"
+          id="todo-list-container"
+          data-cy="todo-list"
+        >
+          <div class="add-todo" id="add-todo">
+            <input
+              type="text"
+              id="todo-title-input"
+              data-cy="todo-title-input"
+              placeholder="Skriv här"
+            />
+            <input
+              type="date"
+              name="date"
+              id="date-todo"
+              data-cy="todo-date-input"
+            />
+            <button id="todo-btn" data-cy="save-todo-button">
+              Spara Todo!
+            </button>
+            <p class="todolista">To do lista</p>
+          </div>
+          <div id="display-todo">
+            <ol></ol>
+          </div>
         </div>
       </aside>
       <main>
