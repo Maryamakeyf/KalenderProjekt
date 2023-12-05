@@ -100,7 +100,7 @@ function getClickedDay(e) {
   const arrayMonthYear = monthAndYear.split(" ");
   const clickedMonth = arrayMonthYear[0];
   const clickedYear = Number(arrayMonthYear[1]);
-  console.log(clickedMonth + " och " + clickedYear);
+  //console.log(clickedMonth + " och " + clickedYear);
 
   const months = [
     "januari",
@@ -118,10 +118,36 @@ function getClickedDay(e) {
   ];
   const lowercaseMonth = clickedMonth.toLowerCase();
   const monthIndex = months.indexOf(lowercaseMonth);
-  monthNumber = monthIndex + 1;
-  console.log(monthNumber);
-  console.log(monthAndYear);
+  //monthNumber = monthIndex + 1;
+  //console.log(monthNumber);
+  //console.log(monthAndYear);
   const clickedDate = Number(clickedDateText);
+
+  const clickedClass = clickedDay.classList;
+  if (clickedClass.contains("first-inactive")) {
+    const monthNumber = monthIndex;
+    const newMonthNumber = monthNumber === 0 ? 12 : monthNumber;
+    if (newMonthNumber === 12) {
+      const previousYear = clickedYear - 1;
+      console.log(clickedDate + "-" + newMonthNumber + "-" + previousYear);
+    } else {
+      console.log(clickedDate + "-" + newMonthNumber + "-" + clickedYear);
+    }
+  } else if (clickedClass.contains("last-inactive")) {
+    const monthNumber = monthIndex + 2;
+    const newMonthNumber = monthNumber === 13 ? 1 : monthNumber;
+    if (newMonthNumber === 1) {
+      const nextYear = clickedYear + 1;
+      console.log(clickedDate + "-" + newMonthNumber + "-" + nextYear);
+    } else {
+      console.log(clickedDate + "-" + newMonthNumber + "-" + clickedYear);
+    }
+  } else {
+    const newMonthNumber = monthIndex + 1;
+    console.log("hellå");
+    console.log(newMonthNumber);
+    console.log(clickedDate + "-" + newMonthNumber + "-" + clickedYear);
+  }
 
   clickedDay.classList.toggle("slected-day");
   console.log("You Clicked on me!");
