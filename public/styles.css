@@ -127,8 +127,11 @@ main {
   color: rgb(254, 140, 0);
 }
 
-.date.inactive {
+.date.last-inactive {
   color: rgba(255, 0, 0, 0.31);
+}
+.date.first-inactive {
+  color: rgba(0, 81, 255, 0.31);
 }
 .slected-day {
   border: 0.3rem solid blueviolet;

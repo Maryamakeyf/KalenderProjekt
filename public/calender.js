@@ -89,12 +89,40 @@ function generateCalendar(date, dateElement, monthYearElement) {
   dateElement.innerHTML = datesHTML;
   const allDatesElements = document.querySelectorAll(".date");
   allDatesElements.forEach((allDate) => {
-    allDate.addEventListener("click", getTodosLocalstorage);
+    allDate.addEventListener("click", getClickedDay);
   });
 }
 
-function getTodosLocalstorage(e) {
-  const clickedDate = e.currentTarget;
-  clickedDate.classList.toggle("slected-day");
+function getClickedDay(e) {
+  const clickedDay = e.currentTarget;
+  const clickedDateText = clickedDay.querySelector("p").textContent;
+  const monthAndYear = document.getElementById("monthYear").textContent;
+  const arrayMonthYear = monthAndYear.split(" ");
+  const clickedMonth = arrayMonthYear[0];
+  const clickedYear = Number(arrayMonthYear[1]);
+  console.log(clickedMonth + " och " + clickedYear);
+
+  const months = [
+    "januari",
+    "februari",
+    "mars",
+    "april",
+    "maj",
+    "juni",
+    "juli",
+    "augusti",
+    "september",
+    "oktober",
+    "november",
+    "december",
+  ];
+  const lowercaseMonth = clickedMonth.toLowerCase();
+  const monthIndex = months.indexOf(lowercaseMonth);
+  monthNumber = monthIndex + 1;
+  console.log(monthNumber);
+  console.log(monthAndYear);
+  const clickedDate = Number(clickedDateText);
+
+  clickedDay.classList.toggle("slected-day");
   console.log("You Clicked on me!");
 }
