@@ -43,11 +43,19 @@ function initTodolist() {
     renderTodoList();
   };
 }
-function renderTodoList() {
+function renderTodoList(dateStringToFilterBy) {
   //tömmer det gamla visade listan så det inte blir kaka på kaka
   orderdListElement.innerHTML = "";
+  let filteredTodos = [];
+  if (dateStringToFilterBy) {
+    filteredTodos = arrayOfTodos.filter(
+      (todo) => todo.date === dateStringToFilterBy
+    );
+  } else {
+    filteredTodos = arrayOfTodos;
+  }
   //loopar igenom varje todo sparad i arrayen
-  for (let aTodo of arrayOfTodos) {
+  for (let aTodo of filteredTodos) {
     /*skapar ett li för varje todo i lopen*/
     const liElement = document.createElement("li");
     //sätter texten och datumet till li och skriver ut på skärm
@@ -64,7 +72,7 @@ function renderTodoList() {
     liElement.appendChild(spanElementDelete);
     /* när du klickar på delete ikon kommer oncklick funktionen ta in vilket index som den valda todon har i arrayen och skicka med den till funktionen remove todo*/
     spanElementDelete.onclick = function () {
-      const indexofTodo = arrayOfTodos.indexOf(aTodo); //här hämtar den indexen för den todon man är på.
+      const indexofTodo = filteredTodos.indexOf(aTodo); //här hämtar den indexen för den todon man är på.
       removeTodo(indexofTodo);
     };
     /*denna kod gör samma sak som den övre fast med edit ikonen */
@@ -74,7 +82,7 @@ function renderTodoList() {
     spanElementEdit.setAttribute("data-cy", "edit-todo-button");
     liElement.appendChild(spanElementEdit);
     spanElementEdit.onclick = function () {
-      const indexofTodo = arrayOfTodos.indexOf(aTodo);
+      const indexofTodo = filteredTodos.indexOf(aTodo);
       editTodo(indexofTodo);
     };
   }
@@ -113,7 +121,6 @@ function editTodo(index) {
     } else {
       renderTodoList();
       initTodolist();
-      
     }
     /*du kan välja på redigera att bara ändra ett av värdena har testat och den ändrar bara det nya då utan problem*/
   };
@@ -131,5 +138,3 @@ function loadTodoFromLocalStorage() {
     arrayOfTodos = JSON.parse(storedTodos);
   }
 }
-
-
