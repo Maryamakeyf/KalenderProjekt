@@ -51,7 +51,9 @@ function generateCalendar(date, dateElement, monthYearElement) {
     month: "long",
     year: "numeric",
   });
-  monthYearElement.textContent = monthYearString;
+  let upperCaseMontYearString =
+    monthYearString.charAt(0).toUpperCase() + monthYearString.slice(1);
+  monthYearElement.textContent = upperCaseMontYearString;
 
   // skapr Html för datumen
   let datesHTML = "";
