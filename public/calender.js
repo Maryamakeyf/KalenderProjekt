@@ -97,7 +97,7 @@ function getClickedDay(e) {
   const clickedDay = e.currentTarget;
 
   const clickedDateText = clickedDay.querySelector("p").textContent;
-  console.log(clickedDateText);
+
   const monthAndYear = document.getElementById("monthYear").textContent;
   const arrayMonthYear = monthAndYear.split(" ");
   const clickedMonth = arrayMonthYear[0];
@@ -137,6 +137,12 @@ function getClickedDay(e) {
   const dateString = date.toLocaleDateString("sv-sv");
 
   clickedDay.classList.toggle("slected-day");
+  const allDatesElements = document.querySelectorAll(".date");
+  allDatesElements.forEach((dateElement) => {
+    if (dateElement !== clickedDay) {
+      dateElement.classList.remove("slected-day");
+    }
+  });
   console.log("You Clicked on me!", dateString);
 
   renderTodoList(dateString);
