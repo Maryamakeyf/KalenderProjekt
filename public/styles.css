@@ -22,12 +22,12 @@ span {
 header {
   background: rebeccapurple;
   text-align: center; /* sätter texten kalender i mitten*/
-  flex-basis: 100%;
+  width: 100%;
 }
 
 aside {
   background-color: aquamarine;
-  flex-basis: 20%;
+  width: 20%;
 }
 .today-content {
   padding: 1rem;
@@ -96,7 +96,7 @@ input {
 }
 main {
   background-color: rgb(250, 252, 248);
-  flex-basis: 80%;
+  width: 80%; /* ?????*/
   border-radius: 5px; /* storleken rundheten*/
   /* box-shadow: 1px 0 5px black; /*skuggan på knapparna*/
 }
@@ -105,7 +105,7 @@ main {
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  max-height: 100%;
+/*  max-height: 100%; */
   gap: 5px;
 }
 
@@ -161,84 +161,78 @@ button {
 }
 
 
-@media (max-width: 950px) {
-  aside, main, .days ul, .month-banner, header {
-    flex-basis: 100%;
+@media (width: 950px) {
+  aside, main, .days ul, header {
+    width: 100%;
   }
   .days, .today-content, .month-banner, input, button, #todo-btn {
     font-size: small;
-  }
-  .calendar-dates {
-    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
   }
   .date {
     padding-bottom: 10%;
   }
-} */
+} 
 
-@media (max-width: 900px){
+@media (width: 900px){
   aside, main {
-    flex-basis: 100%;
+    width: 100%;
   }
   .days ul, .month-banner, header {
-    flex-basis: 100%;
-    max-width: 900px;
+width: 100%;
   }
   .days, .today-content, .month-banner, input, button, #todo-btn {
     font-size: small;
-  }
-  .calendar-dates {
-    grid-template-columns: repeat(7, 1fr);
   }
   .date {
     padding-bottom: 10%;
   }
 }
 
-@media (max-width: 700px){
+@media (width: 700px){
   aside, main {
-    flex-basis: 100%;
+    width: 100%;
   }
-  .days ul, .month-banner, header {
-    flex-basis: 100%;
-    max-width: 100%;
+ .days ul, .today-content, header {
+  width: 100%;
+}
+  .days, .calendar-dates , .month-banner {
+    text-align: center;
+    width: 700px;
   }
-  .days, .today-content {
-max-width: 100%;
-  }
-  .month-banner, input, button, #todo-btn {
-    font-size: small;
+   input, button, #todo-btn {
+    font-size: small; /*anpassar storleken på texten*/
   }
   .calendar-dates {
-    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
   }
   .date {
     padding-bottom: 10%;
+    width: 100%;
   }
 }
 
-@media (max-width: 500px){
+@media (width: 500px){
 /*css for phones big ones*/
 aside, main {
-  flex-basis: 100%;
+  width: 100%;
 }
 .days, .today-content, .calendar-dates, .month-banner {
-  max-width: 100%;
+  width: 500px;
 }
 
-input, button, #todo-btn {
-  font-size: small;
-
-}
 }
 
-@media (max-width: 360px) {
+@media (width: 360px) {
 /* Stilar för mindre telefoner */
 aside, main {
-  flex-basis: 100%;
+  width: 100%;
 }
-.days, .today-content, .month-banner, input, button, #todo-btn {
+.days, .month-banner, input, button, #todo-btn {
   font-size: smaller;
-  max-width: 360px;
+  width: 100%;
+}
+.today-content {
+background-color: pink;
 }
 }
