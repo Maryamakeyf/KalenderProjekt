@@ -7,7 +7,7 @@ function main() {
   initTodolist();
   loadTodoFromLocalStorage();
   renderTodoList();
-
+  updateCalendar();
   // Init today view
 
   // Init todos list
