@@ -73,7 +73,7 @@ function renderTodoList(dateStringToFilterBy) {
     /* när du klickar på delete ikon kommer oncklick funktionen ta in vilket index som den valda todon har i arrayen och skicka med den till funktionen remove todo*/
     spanElementDelete.onclick = function () {
       const indexofTodo = filteredTodos.indexOf(aTodo); //här hämtar den indexen för den todon man är på.
-      removeTodo(indexofTodo);
+      removeTodo(indexofTodo, dateStringToFilterBy);
     };
     /*denna kod gör samma sak som den övre fast med edit ikonen */
     const spanElementEdit = document.createElement("span");
@@ -83,22 +83,22 @@ function renderTodoList(dateStringToFilterBy) {
     liElement.appendChild(spanElementEdit);
     spanElementEdit.onclick = function () {
       const indexofTodo = filteredTodos.indexOf(aTodo);
-      editTodo(indexofTodo);
+      editTodo(indexofTodo, dateStringToFilterBy);
     };
   }
 }
 //index är indexoftodo
-function removeTodo(index) {
+function removeTodo(index, dateStringToFilterBy) {
   arrayOfTodos.splice(
     index,
     1
   ); /*vid det valda indexet tar den bort en sak, asså den valda todon i arrayen*/
   saveTodosToLocalStorage();
-  renderTodoList();
+  renderTodoList(dateStringToFilterBy);
 }
 
 //index är indexoftodo
-function editTodo(index) {
+function editTodo(index, dateStringToFilterBy) {
   /*sätter värdet i inpuputfält och datumfältet till det värdet som finns vid valt index (.) är att den går in i varje objekt del*/
   inputTodo.value = arrayOfTodos[index].text;
   inputDate.value = arrayOfTodos[index].date;
@@ -114,12 +114,12 @@ function editTodo(index) {
       inputTodo.value = "";
       inputDate.value = "";
 
-      renderTodoList();
+      renderTodoList(dateStringToFilterBy);
       initTodolist();
 
       /*om man inte gör ngt ändrar den bara knapparna och visar todolistan*/
     } else {
-      renderTodoList();
+      renderTodoList(dateStringToFilterBy);
       initTodolist();
     }
     /*du kan välja på redigera att bara ändra ett av värdena har testat och den ändrar bara det nya då utan problem*/

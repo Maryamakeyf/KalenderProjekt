@@ -30,6 +30,7 @@ function updateCalendar() {
 // Bestämma för en funktion för att generera kalendern.
 function generateCalendar(date, dateElement, monthYearElement) {
   // Hämtar nuvarande år och månad från det givna datumet.
+  let storedTodosArray = [];
   const currentYear = date.getFullYear();
   const currentMonth = date.getMonth();
   // Skapar objekt för första och sista dagen i månaden.
@@ -54,7 +55,13 @@ function generateCalendar(date, dateElement, monthYearElement) {
   let upperCaseMontYearString =
     monthYearString.charAt(0).toUpperCase() + monthYearString.slice(1);
   monthYearElement.textContent = upperCaseMontYearString;
-
+  const storedTodos = localStorage.getItem("todos");
+  if (storedTodos) {
+    storedTodosArray = JSON.parse(storedTodos);
+  } else {
+    storedTodosArray = [];
+  }
+  console.log(storedTodosArray);
   // skapr Html för datumen
   let datesHTML = "";
   //lägger till de inaktiva datumen före den första dagen i månaden
@@ -73,7 +80,26 @@ function generateCalendar(date, dateElement, monthYearElement) {
       currentYear === new Date().getFullYear()
         ? "active"
         : "";
-    datesHTML += `<div class="date ${activeClass}" data-cy="calendar-cell"><p data-cy="calendar-cell-date">${i}</p></div>`;
+
+    const currentDateTodos = storedTodosArray.filter((todo) => {
+      const todoDate = new Date(todo.date).getDate();
+      return todoDate === i;
+    });
+    let todoContent = "";
+    if (currentDateTodos.length > 0) {
+      for (let j = 1; j <= currentDateTodos.length; j++) {
+        todoContent += j;
+      }
+    }
+
+    datesHTML += `<div class="date ${activeClass}" data-cy="calendar-cell">
+                <p data-cy="calendar-cell-date">${i}</p>
+                ${
+                  todoContent
+                    ? `<span class="event-count">${todoContent}</span>`
+                    : ""
+                }
+              </div>`;
   }
   //lägger till inaktiva datum efter den sista dagen i månaden
   let remainingDays = 7 - lastDayIndex;
