@@ -24,6 +24,9 @@ function initTodolist() {
       saveTodosToLocalStorage();
       inputTodo.value = "";
       inputDate.value = "";
+      renderTodoList();
+      updateCalendar();
+      initTodolist();
       /*Om vi har en todo men man inte valt i datum ska den ta dagens datum som default*/
     } else if (todo !== "" && todoDate === "") {
       //hämtar dagens datum
@@ -35,6 +38,9 @@ function initTodolist() {
       saveTodosToLocalStorage();
       inputTodo.value = "";
       inputDate.value = "";
+      renderTodoList();
+      updateCalendar();
+      initTodolist();
       //man kan trycka på knapp utan att ngt händer
     } else {
       return;
