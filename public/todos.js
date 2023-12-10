@@ -101,6 +101,7 @@ function removeTodo(index, dateStringToFilterBy) {
   ); /*vid det valda indexet tar den bort en sak, asså den valda todon i arrayen*/
   saveTodosToLocalStorage();
   renderTodoList(dateStringToFilterBy);
+  updateCalendar();
 }
 
 //index är indexoftodo
