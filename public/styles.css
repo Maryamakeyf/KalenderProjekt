@@ -48,6 +48,7 @@ aside {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 10px;
   
   
 }
@@ -78,7 +79,9 @@ input {
 }
 .days {
   margin: 0px;
-  background-color: #b05f5f;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  background-color: #6a6767;
  /* padding: 10px; */
 }
 .days ul {
@@ -161,20 +164,31 @@ button {
 }
 
 
-@media (width: 950px) {
-  aside, main, .days ul, header {
-    width: 100%;
-  }
-  .days, .today-content, .month-banner, input, button, #todo-btn {
-    font-size: small;
-    text-align: center;
-  }
-  .date {
-    padding-bottom: 10%;
-  }
+@media (max-width: 950px) {
+aside, main., header, .days ul {
+  width: 100%;
+}
+.days, .today-content, .calendar-dates, .month-banner {
+  width: 100%;
+}
+input, button, #todo-btn {
+  position: relative;
+  font-size: small;
+  text-align: center;
+}
+.date {
+width: 100%;
+
+}
+.todo-list-container {
+color: rgb(212, 239, 6); /*färgen på todo grejerna*/
+margin-bottom: 10px;
 } 
 
-@media (width: 900px){
+
+}
+
+@media (max-width: 900px){
   aside, main {
     width: 100%;
   }
@@ -188,7 +202,7 @@ width: 100%;
     padding-bottom: 10%;
   }
 }
-
+/*
 @media (width: 700px){
   aside, main {
     width: 100%;
@@ -198,41 +212,57 @@ width: 100%;
 }
   .days, .calendar-dates , .month-banner {
     text-align: center;
-    width: 700px;
+    width: 100%;
   }
    input, button, #todo-btn {
     font-size: small; /*anpassar storleken på texten*/
   }
-  .calendar-dates {
+ /* .calendar-dates {
     width: 100%;
   }
   .date {
     padding-bottom: 10%;
     width: 100%;
   }
-}
+} */
 
-@media (width: 500px){
+@media (max-width: 500px){
 /*css for phones big ones*/
 aside, main {
   width: 100%;
 }
 .days, .today-content, .calendar-dates, .month-banner {
-  width: 500px;
-}
+  width: 100%;
+  text-align: center;
 
 }
 
-@media (width: 360px) {
+}
+
+@media (max-width: 360px) {
 /* Stilar för mindre telefoner */
 aside, main {
   width: 100%;
 }
-.days, .month-banner, input, button, #todo-btn {
+.days, .month-banner {
   font-size: smaller;
   width: 100%;
 }
+input, button {
+  font-size: smaller;
+  padding: 3px;
+}
+#todo-btn {
+  padding: 3px;
+  margin: 2px;
+}
+
 .today-content {
 background-color: pink;
+text-align: center;
 }
+.todo-list-container {
+font-size: small;
+margin-bottom: 10px;
+  }
 }
