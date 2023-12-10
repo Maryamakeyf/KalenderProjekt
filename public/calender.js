@@ -85,13 +85,9 @@ function generateCalendar(date, dateElement, monthYearElement) {
       const todoDate = new Date(todo.date).getDate();
       return todoDate === i;
     });
-    let todoContent = "";
-    if (currentDateTodos.length > 0) {
-      for (let j = 1; j <= currentDateTodos.length; j++) {
-        todoContent += j;
-      }
-    }
+    let todoContent = currentDateTodos.length > 0 ? currentDateTodos.length : ""; //gör så att todoContent visar rätt siffra för todos
 
+    
     datesHTML += `<div class="date ${activeClass}" data-cy="calendar-cell">
                 <p data-cy="calendar-cell-date">${i}</p>
                 ${
