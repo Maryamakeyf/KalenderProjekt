@@ -143,6 +143,22 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+.date {
+  position: relative;
+}
+
+.event-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;  
+  padding: 2px 6px; 
+  border: 1px solid black;
+  border-radius: 50%; 
+  font-size: 8px;
+
+}
+
 
 .material-symbols-outlined {
   font-variant: normal;
