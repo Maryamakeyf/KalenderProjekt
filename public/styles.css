@@ -165,7 +165,7 @@ button {
 
 
 @media (max-width: 950px) {
-aside, main., header, .days ul {
+aside, main, header, .days ul {
   width: 100%;
 }
 .days, .today-content, .calendar-dates, .month-banner {
@@ -216,7 +216,7 @@ width: 100%;
   }
    input, button, #todo-btn {
     font-size: small; /*anpassar storleken på texten*/
-  }
+
  /* .calendar-dates {
     width: 100%;
   }
