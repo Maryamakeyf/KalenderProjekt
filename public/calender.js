@@ -92,7 +92,7 @@ function generateCalendar(date, dateElement, monthYearElement) {
                 <p data-cy="calendar-cell-date">${i}</p>
                 ${
                   todoContent
-                    ? `<span class="event-count">${todoContent}</span>`
+                    ? `<span class="event-count" data-cy="calendar-cell-todos">${todoContent}</span>`
                     : ""
                 }
               </div>`;
