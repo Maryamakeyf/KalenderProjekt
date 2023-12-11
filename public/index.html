@@ -9,6 +9,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,900;1,400&display=swap" rel="stylesheet">
+
     <title>Document</title>
     <script src="today.js"></script>
     <script src="calender.js"></script>
@@ -17,7 +22,7 @@
   </head>
   <body>
     <header>
-      <h1>Kalendern</h1>
+      <h1>Kalender</h1>
     </header>
     <div class="content">
       <aside>
@@ -45,9 +50,9 @@
               data-cy="todo-date-input"
             />
             <button id="todo-btn" data-cy="save-todo-button">
-              Spara Todo!
+              Spara
             </button>
-            <p class="todolista">To do lista</p>
+            <p class="todolista">Lista</p>
           </div>
           <div id="display-todo">
             <ol></ol>
@@ -56,9 +61,9 @@
       </aside>
       <main>
         <div class="month-banner">
-          <span class="material-symbols-outlined"> chevron_left </span>
-          <h2>November</h2>
-          <span class="material-symbols-outlined"> chevron_right </span>
+            <button id="beforeBtn" data-cy="prev-month"><span class="material-symbols-outlined">chevron_left</span></button>
+          <span id="monthYear">Månad och år</span>
+            <button id="nextBtn" data-cy="next-month"><span class="material-symbols-outlined">chevron_right </span></button>
         </div>
         <div class="days">
           <ul>
@@ -71,7 +76,11 @@
             <li>Söndag</li>
           </ul>
         </div>
-        <div class="calender">Huvudinnehåll kalender</div>
+
+        <div id="calendar-dates" class="calendar-dates" data-cy="calendar-body">
+    <!--  <span data-cy="calendar-cell-date"></span> -->
+          <!-- Kalenderdatum kommer att genereras och visas här så behövs css -->
+      </div>
       </main>
     </div>
   </body>

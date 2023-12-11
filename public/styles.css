@@ -1,5 +1,9 @@
 * {
   margin: 0;
+  box-sizing: border-box; /* Lägg till detta för att inkludera padding och border i elementens totala bredd och höjd */
+}
+html {
+  height: 100%;
 }
 body {
   display: flex;
@@ -7,6 +11,14 @@ body {
   box-sizing: content-box;
   margin: 0;
   padding: 0;
+  box-shadow: 1px 0 5px black; /*skuggan på knapparna*/
+  border-radius: 5px;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 10%,
+    rgba(148, 187, 233, 1) 20%
+  );
+  text-align: center; /* sätter texten kalender i mitten*/
 }
 span {
   cursor: pointer;
@@ -16,20 +28,39 @@ span {
   flex-wrap: wrap;
 }
 header {
-  background: rebeccapurple;
+  margin-right: auto; /* Fast marginal på 110px på höger sida */
+  margin-left: 54%; /* Flexibel marginal på vänster sida */
+  text-transform: uppercase;
+  font-family: "Playfair Display", serif;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 10%,
+    rgba(148, 187, 233, 1) 50%
+  );
+  text-align: center; /* sätter texten kalender i mitten*/
 }
+
 aside {
-  background-color: aquamarine;
-  flex-basis: 20%;
+  background-color: #94bbe9;
+  width: 20%;
+  font-family: "Playfair Display", serif;
 }
 .today-content {
+  text-align: center;
   padding: 1rem;
-  background-color: darkgray;
-  font-size: large; 
+  background-color: #94bbe9;
+  font-size: large;
 }
 .month-banner {
-  background-color: aqua;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
   text-align: center;
+  font-family: "Playfair Display", serif;
 }
 .month-banner h2 {
   display: inline;
@@ -37,68 +68,281 @@ aside {
 
 .todo-list-container {
   padding-top: 4px;
-  padding-bottom: 4;
-  padding-left: 4px;
+  padding-left: 5px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  
-  
+  margin-bottom: 10px;
 }
 input {
   padding: 5px;
   border: 2px solid black;
   border-radius: 5px;
   font-size: 16px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
-.todolista{
+.todolista {
   margin-top: 1rem;
   margin-bottom: 1rem;
   text-decoration: underline;
-  padding-left: 15px;
+  padding-left: 20px;
   font-weight: bold;
-
+  /* text-align: center; /*gör totdolist center*/
 }
-#todo-btn{
+#todo-btn {
   margin-top: 5px;
-  font-family: 'Times New Roman', Times, serif;
-  border-radius: 5px ;
+  font-family: "Times New Roman", Times, serif;
+  border-radius: 5px;
   height: 2rem;
 }
-#date{
+#date {
   margin-top: 4px;
   margin-bottom: 4px;
 }
 .days {
-  background-color: aliceblue;
-  display: flex;
+  margin: 0px;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  font-family: "Playfair Display", serif;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  ); /* padding: 10px; */
 }
 .days ul {
+  padding: 0;
   display: flex;
-  flex-basis: 100%;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
-  list-style-type: none;
+}
+.days li {
+  margin-left: 8px;
+  display: inline-block;
+  width: 100px;
+  color: #000000;
+  text-align: center;
 }
 main {
-  background-color: chartreuse;
-  flex-basis: 80%;
-  min-height: 100vh;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 80%
+  );
+  width: 80%; /* ?????*/
+  border-radius: 5px; /* storleken rundheten*/
+  /* box-shadow: 1px 0 5px black; /*skuggan på knapparna*/
 }
-.calender {
+
+.calendar-dates {
+  padding: 10px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
+  /*  max-height: 100%; */
+  gap: 5px;
 }
-@media (max-width: 600px) {
+
+.date {
+  display: flex;
+  padding: 10px 5px;
+  padding-bottom: 50%;
+  margin: auto;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0; /* rundheten på knappen över dagen */
+  width: 100%; /* att vara responsiv */
+  height: auto; /* för att vara mer flexibel */
+  transition: 0.2s;
+  border: 1px solid bisque; /* Vi kan välja vilka färger sen */
+}
+
+.date:hover,
+.date.active {
+  background-color: #d8b9b9af;
+  color: beige;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+} /*gör att den dagen som är har en annan font och sticker ut mer*/
+
+.date.inactive {
+  color: rgba(255, 0, 0, 0.31);
+}
+.date.first-inactive {
+  color: rgba(0, 81, 255, 0.31);
+}
+.slected-day {
+  border: 0.3rem solid blueviolet;
+}
+
+button {
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.date {
+  position: relative;
+}
+
+.event-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+  padding: 2px 6px;
+  border: 1px solid black;
+  border-radius: 50%;
+  font-size: 8px;
+}
+
+.material-symbols-outlined {
+  font-variant: normal;
+  font-size: 24px; /* Justera storleken efter behov, vi tycker passar */
+}
+#todo-btn {
+  margin-top: 5px;
+  font-family: "Times New Roman", Times, serif;
+  border-radius: 5px;
+  height: 1.5rem;
+  border: 1px solid #000;
+  background-color: #eeaecaa0;
+  padding: 0.2rem 1rem; /* för att göra knappen större */
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+#todo-btn:hover {
+  background-color: #eeaeca;
+}
+
+@media (max-width: 950px) {
   aside,
-  main {
-    flex-basis: 100%;
+  main,
+  header,
+  .days ul {
+    width: 100%;
   }
-  .days {
+  header {
+    margin: 0px; /*KALENDERN TILL MER HÖGER*/
+  }
+  .days,
+  .today-content,
+  .calendar-dates,
+  .month-banner {
+    width: 100%;
     font-size: small;
   }
-  .days ul {
-    padding: 10px;
+  input,
+  button,
+  #todo-btn {
+    position: relative;
+    font-size: small;
+    text-align: center;
+  }
+  .date {
+    padding-bottom: 20%;
+  }
+  .todo-list-container {
+    color: black; /*färgen på todo grejerna*/
+  }
+}
+
+@media (max-width: 900px) {
+  aside,
+  main {
+    width: 100%;
+  }
+  .days ul,
+  .month-banner,
+  header {
+    width: 100%;
+  }
+  .days,
+  .today-content,
+  .month-banner,
+  input,
+  button,
+  #todo-btn {
+    font-size: small;
+  }
+  .date {
+    padding-bottom: 20%;
+  }
+}
+/*
+@media (width: 700px){
+  aside, main {
+    width: 100%;
+  }
+ .days ul, .today-content, header {
+  width: 100%;
+}
+  .days, .calendar-dates , .month-banner {
+    text-align: center;
+    width: 100%;
+  }
+   input, button, #todo-btn {
+    font-size: small; /*anpassar storleken på texten*/
+
+/* .calendar-dates {
+    width: 100%;
+  }
+  .date {
+    padding-bottom: 10%;
+    width: 100%;
+  }
+} */
+
+@media (max-width: 500px) {
+  /*css for phones big ones*/
+  aside,
+  main {
+    width: 100%;
+  }
+  .days,
+  .today-content,
+  .calendar-dates,
+  .month-banner {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Stilar för mindre telefoner */
+  aside,
+  main {
+    width: 100%;
+  }
+  header {
+    font-size: smaller;
+  }
+  .days,
+  .month-banner {
+    font-size: 10px;
+    width: 100%;
+  }
+  input,
+  button {
+    font-size: 10px;
+    padding: 3px;
+  }
+  #todo-btn {
+    padding: 3px;
+    margin: 2px;
+  }
+  .calendar-dates {
+    font-size: 10px;
+  }
+
+  .today-content {
+    background-color: rgba(255, 192, 203, 0.448);
+    text-align: center;
+  }
+  .todo-list-container {
+    font-size: small;
+    margin-bottom: 10px;
   }
 }
