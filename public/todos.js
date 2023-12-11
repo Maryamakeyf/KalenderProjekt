@@ -78,7 +78,7 @@ function renderTodoList(dateStringToFilterBy) {
     liElement.appendChild(spanElementDelete);
     /* när du klickar på delete ikon kommer oncklick funktionen ta in vilket index som den valda todon har i arrayen och skicka med den till funktionen remove todo*/
     spanElementDelete.onclick = function () {
-      const indexofTodo = filteredTodos.indexOf(aTodo); //här hämtar den indexen för den todon man är på.
+      const indexofTodo = arrayOfTodos.indexOf(aTodo); //här hämtar den indexen för den todon man är på.
       removeTodo(indexofTodo, dateStringToFilterBy);
     };
     /*denna kod gör samma sak som den övre fast med edit ikonen */
@@ -88,7 +88,7 @@ function renderTodoList(dateStringToFilterBy) {
     spanElementEdit.setAttribute("data-cy", "edit-todo-button");
     liElement.appendChild(spanElementEdit);
     spanElementEdit.onclick = function () {
-      const indexofTodo = filteredTodos.indexOf(aTodo);
+      const indexofTodo = arrayOfTodos.indexOf(aTodo);
       editTodo(indexofTodo, dateStringToFilterBy);
     };
   }
