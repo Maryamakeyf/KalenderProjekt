@@ -81,9 +81,16 @@ function generateCalendar(date, dateElement, monthYearElement) {
         ? "active"
         : "";
 
-    const currentDateTodos = storedTodosArray.filter((todo) => {
-      const todoDate = new Date(todo.date).getDate();
-      return todoDate === i;
+        const currentDateTodos = storedTodosArray.filter((todo) => {
+          const todoDate = new Date(todo.date);
+          return (
+            todoDate.getDate() === i &&
+            todoDate.getMonth() === currentMonth &&
+            todoDate.getFullYear() === currentYear
+          ) // gör så att todos är filtrerade baserad på dag, månad och år
+        
+
+    
     });
     let todoContent =
       currentDateTodos.length > 0 ? currentDateTodos.length : ""; //gör så att todoContent visar rätt siffra för todos
