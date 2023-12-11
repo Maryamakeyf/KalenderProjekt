@@ -24,8 +24,9 @@ span {
   flex-wrap: wrap;
 }
 header {
-position: relative; /*KALENDERN TILL MER HÖGER*/
-  text-transform:uppercase ;
+  margin-right: auto; /* Fast marginal på 110px på höger sida */
+  margin-left: 110px; /* Flexibel marginal på vänster sida */ 
+  text-transform: uppercase;
   background: rgb(238,174,202);
   background: radial-gradient(circle, rgba(238,174,202,1) 10%, rgba(148,187,233,1) 20%);  text-align: center; /* sätter texten kalender i mitten*/
   width: 100%;
@@ -177,6 +178,10 @@ button {
 aside, main, header, .days ul {
   width: 100%;
 }
+header {
+  margin: 0px; /*KALENDERN TILL MER HÖGER*/
+
+}
 .days, .today-content, .calendar-dates, .month-banner {
   width: 100%;
 }
@@ -264,7 +269,7 @@ input, button {
 }
 
 .today-content {
-background-color: pink;
+background-color: rgba(255, 192, 203, 0.448);
 text-align: center;
 }
 .todo-list-container {
