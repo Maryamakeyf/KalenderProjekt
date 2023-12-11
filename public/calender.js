@@ -1,5 +1,25 @@
+let currentDate = new Date();
+
 // föklarra funktion för att uppdatera kalendern.
-function updateCalendar() {
+function initCalendar() {
+  // Genrerar kalendern med nuvarande datum.
+  renderCalendar();
+
+  // Lägger till för att gå bakåt i kalendern.
+  document.getElementById("beforeBtn").addEventListener("click", function () {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+  });
+
+  // Lägger till för att gå framåt i kalendern.
+  document.getElementById("nextBtn").addEventListener("click", function () {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+  });
+}
+
+// Bestämma för en funktion för att generera kalendern.
+function renderCalendar() {
   //hämtar element för datum o månad/år från HTML-dokumentet.
   const dateElement = document.getElementById("calendar-dates");
   const monthYearElement = document.getElementById("monthYear");
@@ -9,30 +29,10 @@ function updateCalendar() {
     return; // Exit function om elements inte hittats
   }
 
-  //Skapar en nytt Date-objekt för att representera nuvarande datum.
-  let currentDate = new Date();
-  // Genrerar kalendern med nuvarande datum.
-  generateCalendar(currentDate, dateElement, monthYearElement);
-
-  // Lägger till för att gå bakåt i kalendern.
-  document.getElementById("beforeBtn").addEventListener("click", function () {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    generateCalendar(currentDate, dateElement, monthYearElement);
-  });
-
-  // Lägger till för att gå framåt i kalendern.
-  document.getElementById("nextBtn").addEventListener("click", function () {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    generateCalendar(currentDate, dateElement, monthYearElement);
-  });
-}
-
-// Bestämma för en funktion för att generera kalendern.
-function generateCalendar(date, dateElement, monthYearElement) {
   // Hämtar nuvarande år och månad från det givna datumet.
   let storedTodosArray = [];
-  const currentYear = date.getFullYear();
-  const currentMonth = date.getMonth();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
   // Skapar objekt för första och sista dagen i månaden.
   const firstDay = new Date(currentYear, currentMonth, 1);
   const lastDay = new Date(currentYear, currentMonth + 1, 0);
@@ -48,7 +48,7 @@ function generateCalendar(date, dateElement, monthYearElement) {
   const lastDayIndex = lastDay.getDay();
 
   // Omvandlar datumet till en sträng som visar månadens namn och året, och visar sedan denna sträng.
-  const monthYearString = date.toLocaleString("sv-se", {
+  const monthYearString = currentDate.toLocaleString("sv-se", {
     month: "long",
     year: "numeric",
   });
@@ -81,16 +81,13 @@ function generateCalendar(date, dateElement, monthYearElement) {
         ? "active"
         : "";
 
-        const currentDateTodos = storedTodosArray.filter((todo) => {
-          const todoDate = new Date(todo.date);
-          return (
-            todoDate.getDate() === i &&
-            todoDate.getMonth() === currentMonth &&
-            todoDate.getFullYear() === currentYear
-          ) // gör så att todos är filtrerade baserad på dag, månad och år
-        
-
-    
+    const currentDateTodos = storedTodosArray.filter((todo) => {
+      const todoDate = new Date(todo.date);
+      return (
+        todoDate.getDate() === i &&
+        todoDate.getMonth() === currentMonth &&
+        todoDate.getFullYear() === currentYear
+      ); // gör så att todos är filtrerade baserad på dag, månad och år
     });
     let todoContent =
       currentDateTodos.length > 0 ? currentDateTodos.length : ""; //gör så att todoContent visar rätt siffra för todos

@@ -11,44 +11,45 @@ let arrayOfTodos = [];
 
 /*ska nog byta namn men den innehåller vad som händer när man lägger till todos*/
 function initTodolist() {
-  /*när man klickar på lägg till todo knappen*/
-  todoBtn.onclick = function () {
-    /*tar in värdet i inputfältet och datum fältet*/
-    let todo = inputTodo.value;
-    let todoDate = inputDate.value;
-    /* om inputfältet inte är tomt och datumfältet inte är tomt*/
-    if (todo !== "" && todoDate !== "") {
-      /*spara todon och datumet i arrayen som ett object*/
-      arrayOfTodos.push({ text: todo, date: todoDate });
-      //tömmer value fälten/återställer
-      saveTodosToLocalStorage();
-      inputTodo.value = "";
-      inputDate.value = "";
-      renderTodoList();
-      updateCalendar();
-      initTodolist();
-      /*Om vi har en todo men man inte valt i datum ska den ta dagens datum som default*/
-    } else if (todo !== "" && todoDate === "") {
-      //hämtar dagens datum
-      let date = new Date();
-      //omvandlar till vår lokala datum utseende
-      const todaysDate = date.toLocaleDateString("sv-sv");
-      arrayOfTodos.push({ text: todo, date: todaysDate });
-      //tömmer value fältet
-      saveTodosToLocalStorage();
-      inputTodo.value = "";
-      inputDate.value = "";
-      renderTodoList();
-      updateCalendar();
-      initTodolist();
-      //man kan trycka på knapp utan att ngt händer
-    } else {
-      return;
-    }
-    //hämtar todo och renderar todolistan
-    renderTodoList();
-  };
+  todoBtn.onclick = addTodo;
+  renderTodoList();
 }
+
+function addTodo() {
+  /*tar in värdet i inputfältet och datum fältet*/
+  let todo = inputTodo.value;
+  let todoDate = inputDate.value;
+  /* om inputfältet inte är tomt och datumfältet inte är tomt*/
+  if (todo !== "" && todoDate !== "") {
+    /*spara todon och datumet i arrayen som ett object*/
+    arrayOfTodos.push({ text: todo, date: todoDate });
+    //tömmer value fälten/återställer
+    saveTodosToLocalStorage();
+    inputTodo.value = "";
+    inputDate.value = "";
+    renderTodoList();
+    renderCalendar();
+    /*Om vi har en todo men man inte valt i datum ska den ta dagens datum som default*/
+  } else if (todo !== "" && todoDate === "") {
+    //hämtar dagens datum
+    let date = new Date();
+    //omvandlar till vår lokala datum utseende
+    const todaysDate = date.toLocaleDateString("sv-sv");
+    arrayOfTodos.push({ text: todo, date: todaysDate });
+    //tömmer value fältet
+    saveTodosToLocalStorage();
+    inputTodo.value = "";
+    inputDate.value = "";
+    renderTodoList();
+    renderCalendar();
+    //man kan trycka på knapp utan att ngt händer
+  } else {
+    return;
+  }
+  //hämtar todo och renderar todolistan
+  renderTodoList();
+}
+
 function renderTodoList(dateStringToFilterBy) {
   //tömmer det gamla visade listan så det inte blir kaka på kaka
   orderdListElement.innerHTML = "";
@@ -101,7 +102,7 @@ function removeTodo(index, dateStringToFilterBy) {
   ); /*vid det valda indexet tar den bort en sak, asså den valda todon i arrayen*/
   saveTodosToLocalStorage();
   renderTodoList(dateStringToFilterBy);
-  updateCalendar();
+  renderCalendar();
 }
 
 //index är indexoftodo
@@ -122,12 +123,8 @@ function editTodo(index, dateStringToFilterBy) {
       inputDate.value = "";
 
       renderTodoList(dateStringToFilterBy);
-      initTodolist();
-
+      renderCalendar();
       /*om man inte gör ngt ändrar den bara knapparna och visar todolistan*/
-    } else {
-      renderTodoList(dateStringToFilterBy);
-      initTodolist();
     }
     /*du kan välja på redigera att bara ändra ett av värdena har testat och den ändrar bara det nya då utan problem*/
   };
