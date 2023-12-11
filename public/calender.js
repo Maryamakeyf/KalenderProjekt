@@ -66,7 +66,7 @@ function renderCalendar() {
   let datesHTML = "";
   //lägger till de inaktiva datumen före den första dagen i månaden
   for (let i = firstDayIndex; i > 0; i--) {
-    datesHTML += `<div class="date first-inactive" data-cy="calendar-cell"><p data-cy="calendar-cell-date"> ${new Date(
+    datesHTML += `<div class="date inactive" data-cy="calendar-cell"><p data-cy="calendar-cell-date"> ${new Date(
       currentYear,
       currentMonth,
       -i + 1
@@ -111,7 +111,7 @@ function renderCalendar() {
 
   // Add inactive dates after the end of the month up to the end of the current week
   for (let i = 1; i <= daysAfterMonth; i++) {
-    datesHTML += `<div class="date last-inactive" data-cy="calendar-cell"><p data-cy="calendar-cell-date">${i}</p></div>`;
+    datesHTML += `<div class="date inactive" data-cy="calendar-cell"><p data-cy="calendar-cell-date">${i}</p></div>`;
   }
   // sätter in HTML för datumen i kalenderelementen.
   dateElement.innerHTML = datesHTML;

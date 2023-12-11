@@ -89,6 +89,10 @@ input {
   font-weight: bold;
   /* text-align: center; /*gör totdolist center*/
 }
+#display-todo {
+  background: #ebadcedc;
+  border-radius: 5px;
+}
 #todo-btn {
   margin-top: 5px;
   font-family: "Times New Roman", Times, serif;
@@ -155,7 +159,7 @@ main {
   width: 100%; /* att vara responsiv */
   height: auto; /* för att vara mer flexibel */
   transition: 0.2s;
-  border: 1px solid bisque; /* Vi kan välja vilka färger sen */
+  border: 1px solid black; /* Vi kan välja vilka färger sen */
 }
 
 .date:hover,
@@ -168,9 +172,7 @@ main {
 .date.inactive {
   color: rgba(255, 0, 0, 0.31);
 }
-.date.first-inactive {
-  color: rgba(0, 81, 255, 0.31);
-}
+
 .slected-day {
   border: 0.3rem solid blueviolet;
 }
