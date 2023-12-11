@@ -88,11 +88,11 @@ input {
   text-decoration: underline;
   padding-left: 20px;
   font-weight: bold;
-  /* text-align: center; /*gör totdolist center*/
 }
 #display-todo {
   background: #ebadcedc;
   border-radius: 5px;
+  padding: 5px;
 }
 #todo-btn {
   margin-top: 5px;
@@ -159,14 +159,14 @@ main {
   border-radius: 0; /* rundheten på knappen över dagen */
   width: 100%; /* att vara responsiv */
   height: auto; /* för att vara mer flexibel */
-  transition: 0.2s;
+  transition: 0.4s;
   border: 1px solid black; /* Vi kan välja vilka färger sen */
 }
 
 .date:hover,
 .date.active {
-  background-color: #d8b9b9af;
-  color: beige;
+  background-color: #ebadcedc;
+  color: whitesmoke;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 } /*gör att den dagen som är har en annan font och sticker ut mer*/
 
@@ -175,7 +175,7 @@ main {
 }
 
 .slected-day {
-  border: 0.3rem solid blueviolet;
+  border: 0.3rem solid #174970;
 }
 
 button {
@@ -190,6 +190,7 @@ button {
 
 .event-count {
   position: absolute;
+  margin: 0.2rem;
   top: 0;
   right: 0;
   background-color: black;
