@@ -75,6 +75,7 @@ aside {
   margin-bottom: 10px;
 }
 input {
+  margin-top: 0.4rem;
   padding: 5px;
   border: 2px solid black;
   border-radius: 5px;
