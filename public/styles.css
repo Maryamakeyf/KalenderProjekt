@@ -13,6 +13,7 @@ body {
   padding: 0;
   box-shadow: 1px 0 5px black; /*skuggan på knapparna*/
   border-radius: 5px;
+  background: radial-gradient(circle, rgba(238,174,202,1) 10%, rgba(148,187,233,1) 20%);  text-align: center; /* sätter texten kalender i mitten*/
 
 }
 span {
@@ -123,7 +124,7 @@ main {
 .date {
   display: flex;
   padding: 10px 5px;
-  padding-bottom: 50%;
+  padding-bottom: 60%;
   margin: auto;
   cursor: pointer;
   font-weight: 600;
@@ -185,15 +186,12 @@ input, button, #todo-btn {
   text-align: center;
 }
 .date {
-width: 100%;
+  padding-bottom: 20%;
 
 }
 .todo-list-container {
 color:black; /*färgen på todo grejerna*/
-margin-bottom: 10px;
 } 
-
-
 }
 
 @media (max-width: 900px){
