@@ -90,10 +90,22 @@ input {
   font-weight: bold;
 }
 #display-todo {
+  display: none;
   background: #ebadcedc;
   border-radius: 5px;
   padding: 5px;
 }
+ol {
+  padding-left: 20px;
+}
+ol li {
+  font-weight: normal;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+
 #todo-btn {
   margin-top: 5px;
   font-family: "Times New Roman", Times, serif;

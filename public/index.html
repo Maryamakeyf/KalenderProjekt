@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,900;1,400&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Document</title>
     <script src="today.js"></script>
@@ -49,9 +52,7 @@
               id="date-todo"
               data-cy="todo-date-input"
             />
-            <button id="todo-btn" data-cy="save-todo-button">
-              Spara
-            </button>
+            <button id="todo-btn" data-cy="save-todo-button">Spara</button>
             <p class="todolista">Lista</p>
           </div>
           <div id="display-todo">
@@ -61,9 +62,13 @@
       </aside>
       <main>
         <div class="month-banner">
-            <button id="beforeBtn" data-cy="prev-month"><span class="material-symbols-outlined">chevron_left</span></button>
+          <button id="beforeBtn" data-cy="prev-month">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
           <span id="monthYear">Månad och år</span>
-            <button id="nextBtn" data-cy="next-month"><span class="material-symbols-outlined">chevron_right </span></button>
+          <button id="nextBtn" data-cy="next-month">
+            <span class="material-symbols-outlined">chevron_right </span>
+          </button>
         </div>
         <div class="days">
           <ul>
@@ -78,9 +83,9 @@
         </div>
 
         <div id="calendar-dates" class="calendar-dates" data-cy="calendar-body">
-    <!--  <span data-cy="calendar-cell-date"></span> -->
+          <!--  <span data-cy="calendar-cell-date"></span> -->
           <!-- Kalenderdatum kommer att genereras och visas här så behövs css -->
-      </div>
+        </div>
       </main>
     </div>
   </body>

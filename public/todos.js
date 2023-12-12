@@ -77,6 +77,7 @@ function renderTodoList(dateStringToFilterBy) {
     //sätter dit ett data cy attribut och appendar till DOM
     spanElementDelete.setAttribute("data-cy", "delete-todo-button");
     liElement.appendChild(spanElementDelete);
+    todoList.style.display = "block";
     /* när du klickar på delete ikon kommer oncklick funktionen ta in vilket index som den valda todon har i arrayen och skicka med den till funktionen remove todo*/
     spanElementDelete.onclick = function () {
       const indexofTodo = arrayOfTodos.indexOf(aTodo); //här hämtar den indexen för den todon man är på.
@@ -100,6 +101,7 @@ function removeTodo(index, dateStringToFilterBy) {
     index,
     1
   ); /*vid det valda indexet tar den bort en sak, asså den valda todon i arrayen*/
+  todoList.style.display = "none";
   saveTodosToLocalStorage();
   renderTodoList(dateStringToFilterBy);
   renderCalendar();
