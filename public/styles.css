@@ -22,14 +22,24 @@ body {
 }
 span {
   cursor: pointer;
+  font-size: large;
 }
+
+span.material-symbols-outlined {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px; /*Knapparna och radera, ändra knappen*/
+  
+}
+
+
 .content {
   display: flex;
   flex-wrap: wrap;
 }
 header {
   margin-right: auto; /* Fast marginal på 110px på höger sida */
-  margin-left: 54%; /* Flexibel marginal på vänster sida */
+  margin-left: 53%; /* Flexibel marginal på vänster sida */
   text-transform: uppercase;
   font-family: "Playfair Display", serif;
   background: rgb(238, 174, 202);
@@ -39,6 +49,8 @@ header {
     rgba(148, 187, 233, 1) 50%
   );
   text-align: center; /* sätter texten kalender i mitten*/
+  /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.444); */
+
 }
 
 aside {
@@ -51,6 +63,7 @@ aside {
   padding: 1rem;
   background-color: #94bbe9;
   font-size: large;
+ /* text-shadow: 2px 2px 3px white; */
 }
 .month-banner {
   background: rgb(238, 174, 202);
@@ -73,6 +86,7 @@ aside {
   align-items: center;
   flex-direction: column;
   margin-bottom: 10px;
+  
 }
 input {
   margin-top: 0.4rem;
@@ -88,13 +102,18 @@ input {
   text-decoration: underline;
   padding-left: 20px;
   font-weight: bold;
+  font-size: large;
+ /* text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.716); */
+
+  
 }
 #display-todo {
   display: none;
   text-wrap: balance;
   background: #ebadcedc;
   border-radius: 5px;
-  padding: 5px;
+  padding: 3px;
+ /* box-shadow: 1px 2px 9px 1px black; */
 }
 ol {
   padding-left: 20px;
@@ -108,6 +127,7 @@ ol li {
   font-family: "Times New Roman", Times, serif;
   border-radius: 5px;
   height: 2rem;
+  
 }
 #date {
   margin-top: 4px;
@@ -177,6 +197,7 @@ main {
   background-color: #ebadcedc;
   color: whitesmoke;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 1px 2px 9px 1px rgba(0, 0, 0, 0.555);
 } /*gör att den dagen som är har en annan font och sticker ut mer*/
 
 .date.inactive {
@@ -218,13 +239,22 @@ button {
   background-color: #eeaecaa0;
   padding: 0.2rem 1rem; /* för att göra knappen större */
   cursor: pointer;
-  transition: background-color 0.5s ease;
+  transition: 0.5s ease;
 }
 
 #todo-btn:hover {
   background-color: #eeaeca;
 }
 
+
+@media (max-width: 1000px) {
+  .todo-list-container {
+    font-size: 15px;
+  }
+  header {
+    margin-left: 51%; /* Flexibel marginal på vänster sida */
+}
+}
 @media (max-width: 950px) {
   aside,
   main,
@@ -235,7 +265,6 @@ button {
   header {
     margin: 0px; /*KALENDERN TILL MER HÖGER*/
   }
-  .days,
   .today-content,
   .calendar-dates,
   .month-banner {
@@ -267,7 +296,9 @@ button {
   header {
     width: 100%;
   }
-  .days,
+  .days {
+    font-size: medium;
+  }
   .today-content,
   .month-banner,
   input,
@@ -279,29 +310,19 @@ button {
     padding-bottom: 20%;
   }
 }
-/*
-@media (width: 700px){
-  aside, main {
-    width: 100%;
-  }
- .days ul, .today-content, header {
-  width: 100%;
-}
-  .days, .calendar-dates , .month-banner {
-    text-align: center;
-    width: 100%;
-  }
-   input, button, #todo-btn {
-    font-size: small; /*anpassar storleken på texten*/
 
-/* .calendar-dates {
-    width: 100%;
+@media (max-width: 600px){
+  
+  .days {
+    font-size: small;
   }
-  .date {
-    padding-bottom: 10%;
-    width: 100%;
+ .todo-list-container {
+    font-size: small;
   }
-} */
+  .days ul {
+    padding-right: 1%;
+  }
+}
 
 @media (max-width: 500px) {
   /*css for phones big ones*/
@@ -309,12 +330,28 @@ button {
   main {
     width: 100%;
   }
-  .days,
   .today-content,
   .calendar-dates,
   .month-banner {
     width: 100%;
     text-align: center;
+  }
+  .days {
+    font-size: 12px;
+  }
+  .days ul {
+    padding-right: 2%;
+  }
+  .todo-list-container {
+    font-size: small;
+  }
+  span {
+    cursor: pointer;
+    font-size: medium;
+  }
+  
+  span.material-symbols-outlined {
+    font-size: 10px;
   }
 }
 
@@ -340,17 +377,39 @@ button {
   #todo-btn {
     padding: 3px;
     margin: 2px;
+    
   }
   .calendar-dates {
     font-size: 10px;
   }
-
+  
   .today-content {
     background-color: rgba(255, 192, 203, 0.448);
     text-align: center;
+    
   }
   .todo-list-container {
     font-size: small;
     margin-bottom: 10px;
+    
   }
+  span {
+    cursor: pointer;
+    font-size: small;
+  }
+  
+  span.material-symbols-outlined {
+    font-size: 10px;
+  }
+  .days ul {
+    padding-right: 2%;
+  }
+  .date:hover,
+.date.active {
+  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.464);
+} /*gör att den dagen som är har en annan font och sticker ut mer*/
+
+#display-todo {
+box-shadow: 1px 2px 9px 1px rgba(0, 0, 0, 0.546); 
+}
 }
