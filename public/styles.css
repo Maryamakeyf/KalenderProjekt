@@ -91,6 +91,7 @@ input {
 }
 #display-todo {
   display: none;
+  text-wrap: balance;
   background: #ebadcedc;
   border-radius: 5px;
   padding: 5px;
