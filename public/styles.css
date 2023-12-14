@@ -104,7 +104,7 @@ input {
 }
 #display-todo {
   border: 1.5px solid black;
-  box-shadow: 3px 3px 3px 3px black;
+  box-shadow: 2px 2px 2px 2px black;
   display: none;
   word-wrap: balance;
   background: #ebadcedc;
