@@ -103,6 +103,7 @@ input {
   /* text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.716); */
 }
 #display-todo {
+  border: 1.5px solid black;
   display: none;
   word-wrap: balance;
   background: #ebadcedc;
