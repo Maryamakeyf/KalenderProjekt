@@ -48,7 +48,7 @@ header {
     rgba(148, 187, 233, 1) 50%
   );
   text-align: center; /* sätter texten kalender i mitten*/
-  /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.444); */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.444); 
 }
 
 aside {
@@ -61,7 +61,6 @@ aside {
   padding: 1rem;
   background-color: #94bbe9;
   font-size: large;
-  /* text-shadow: 2px 2px 3px white; */
 }
 .month-banner {
   background: rgb(238, 174, 202);
@@ -80,6 +79,7 @@ aside {
 .todo-list-container {
   padding-top: 4px;
   padding-left: 5px;
+  padding-right: 5px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -100,7 +100,6 @@ input {
   padding-left: 20px;
   font-weight: bold;
   font-size: large;
-  /* text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.716); */
 }
 #display-todo {
   border: 1.5px solid black;
@@ -139,7 +138,7 @@ ol li {
     circle,
     rgba(238, 174, 202, 1) 0%,
     rgba(148, 187, 233, 1) 100%
-  ); /* padding: 10px; */
+  ); 
 }
 .days ul {
   padding: 0;
@@ -161,16 +160,14 @@ main {
     rgba(238, 174, 202, 1) 0%,
     rgba(148, 187, 233, 1) 80%
   );
-  width: 80%; /* ?????*/
+  width: 80%;
   border-radius: 5px; /* storleken rundheten*/
-  /* box-shadow: 1px 0 5px black; /*skuggan på knapparna*/
 }
 
 .calendar-dates {
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  /*  max-height: 100%; */
   gap: 5px;
 }
 
@@ -192,10 +189,9 @@ main {
 .date.active {
   background-color: #ebadcedc;
   color: whitesmoke;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /*gör att den dagen som är har en annan font och sticker ut mer*/
   box-shadow: 1px 2px 9px 1px rgba(0, 0, 0, 0.555);
-} /*gör att den dagen som är har en annan font och sticker ut mer*/
-
+} 
 .date.inactive {
   color: rgba(255, 0, 0, 0.31);
 }
@@ -258,7 +254,7 @@ button {
     width: 100%;
   }
   header {
-    margin: 0px; /*KALENDERN TILL MER HÖGER*/
+    margin: 0px; /*KALENDERN titeln MER HÖGER*/
   }
   .today-content,
   .calendar-dates,
@@ -397,10 +393,6 @@ button {
   }
   .date:hover,
   .date.active {
-    box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.464);
-  } /*gör att den dagen som är har en annan font och sticker ut mer*/
-
-  /* #display-todo {
-box-shadow: 1px 2px 9px 1px rgba(0, 0, 0, 0.546); 
-} */
+    box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.464); /*gör att den dagen som är har en annan font och sticker ut mer*/
+  }
 }
